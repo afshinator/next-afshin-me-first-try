@@ -1,38 +1,50 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
+import Head from "next/head";
+import Layout, { siteTitle } from "../components/layout";
 // import utilStyles from '../styles/utils.module.css'
 
-import { getSortedPostsData } from '../lib/posts'
-import DarkModeSwitch from './../components/DarkModeSwitch';
-import {Text, Heading, Flex, Stack } from '@chakra-ui/react'
+import { getSortedPostsData } from "../lib/posts";
+import DarkModeSwitch from "./../components/DarkModeSwitch";
+import { Text, Heading, Flex, Stack } from "@chakra-ui/react";
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData
-    }
-  }
+      allPostsData,
+    },
+  };
 }
 
-export default function Home({allPostsData}) {
+export default function Home({ allPostsData }) {
   return (
     // <Layout home>
     <>
       <Head>
         <title>{siteTitle}</title>
+        <link
+          rel="preload"
+          href="/fonts/BarlowCondensed-Regular.ttf"
+          as="font"
+          crossOrigin=""
+        />
       </Head>
-      <section >
+      <section>
         <DarkModeSwitch />
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+        <p >
+          Lets see what this looks like when Ichange the font - Afshin.me
+        </p>
+        <p style={{ fontFamily: "BarlowCondensed" }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </section>
-</>
-    
-  )
+    </>
+  );
 }
 
 /* 
@@ -51,4 +63,4 @@ export default function Home({allPostsData}) {
         </ul>
       </section>
 
-      */
+*/

@@ -25,3 +25,11 @@ img {
   max-width: 100%;
   display: block;
 }
+
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("/fonts/BarlowCondensed-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
