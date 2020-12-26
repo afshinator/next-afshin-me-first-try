@@ -17,8 +17,7 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    // <Layout home>
-    <>
+    <Layout home>
       <Head>
         <title>{siteTitle}</title>
         <link
@@ -30,9 +29,7 @@ export default function Home({ allPostsData }) {
       </Head>
       <section>
         <DarkModeSwitch />
-        <p >
-          Lets see what this looks like when Ichange the font - Afshin.me
-        </p>
+        <p>Lets see what this looks like when Ichange the font - Afshin.me</p>
         <p style={{ fontFamily: "BarlowCondensed" }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -43,7 +40,7 @@ export default function Home({ allPostsData }) {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </section>
-    </>
+    </Layout>
   );
 }
 

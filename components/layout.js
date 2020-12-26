@@ -1,14 +1,26 @@
-import Head from 'next/head'
+import Head from "next/head";
 // import styles from './layout.module.css'
 // import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Link from "next/link";
+import {
+  Flex,
+  Text,
+  Container,
+  Box,
+  Heading,
+  Button,
+  Progress,
+} from "@chakra-ui/react";
 
-const name = 'Shinators'
-export const siteTitle = 'Next.js Website soon come'
+import PageHeader from "./PageHeader";
+
+const name = "Shinators";
+export const siteTitle = "Next.js Website soon come";
 
 export default function Layout({ children, home }) {
+  console.log("layout.js: home?", home);
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -24,43 +36,47 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <Flex
+        direction="column"
+        align="center"
+        maxW={{ xl: "1200px" }}
+        m="0 auto"
+      >
+      <Progress size="xs" isIndeterminate />
+        <PageHeader />
+        <Box padding="4" bg="gray.100">
+          There are many benefits to a joint design and development system. Not
+          only does it bring benefits to the design team.
+        </Box>
         {home ? (
           <>
-            <img
-              src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={name}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <img src="/images/profile.jpg" alt={name} />
+            <h1>{name}</h1>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
-                />
+                <img src="/images/profile.jpg" alt={name} />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <h2>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a>{name}</a>
               </Link>
             </h2>
           </>
         )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
-    </div>
-  )
+
+        <main>{children}</main>
+        {!home && (
+          <div>
+            <Link href="/">
+              <a>← Back to home</a>
+            </Link>
+          </div>
+        )}
+      </Flex>
+    </>
+  );
 }

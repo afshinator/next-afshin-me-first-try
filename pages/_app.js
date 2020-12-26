@@ -14,5 +14,6 @@ export default function App({ Component, pageProps }) {
       <CSSReset />
       <Component {...pageProps} />
     </ChakraProvider>
+    //  </ThemeProvider>
   );
 }
