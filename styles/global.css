@@ -33,3 +33,44 @@ img {
   font-weight: 400;
   font-display: swap;
 }
+
+.tileImage0{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/bamboo.svg");
+}
+.tileImage1{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/board.svg");
+}
+.tileImage2{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/diagonal.svg");
+}
+.tileImage3{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/eyes.svg");
+}
+.tileImage4{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/floor.svg");
+}
+.tileImage5{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/invite.svg");
+}
+.tileImage6{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/bamboo.svg");
+}
+.tileImage7{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/signal.svg");
+}
+.tileImage8{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/texture.svg");
+}
+.tileImage9{
+  background-color: #d69e2e;
+  background-image: url("/img/patterns/topography.svg");
+}

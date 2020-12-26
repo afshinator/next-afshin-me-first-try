@@ -7,34 +7,41 @@ const MenuItems = ({ children }) => (
   </Text>
 );
 
+
+
 function PageHeader(props) {
   const [show, setShow] = React.useState(false);
+  const [randomClass, setRandomClass] = React.useState(
+    () => { return 'tileImage' + Math.floor(Math.random() * Math.floor(9))}
+  )
   const handleToggle = () => setShow(!show);
-  // console.log(show)
+  console.log('randomClass ', randomClass)
   return (
     <Flex
       as="header"
-      // align="center"
       justify="space-between"
       wrap="wrap"
       bg="yellow.500"
       color="white"
       m="0 auto"
       w="100%"
-      padding="2"
       borderRadius="sm"
       {...props}
     >
-      <Flex align="center" mr={5}         direction="column" alignItems="left">
+      <Flex w="100%" height="4" className={randomClass}></Flex>
+      <Flex align="center" mx={5} my={3} direction="column" alignItems="left">
         <Heading as="h1" size="lg" letterSpacing={"-.1rem"} color="gray.900">
           Afshin.me
         </Heading>
-        <Heading as="h3" size="md">Software Engineer</Heading>
+        <Heading as="h4" size="md">
+          Software Engineer
+        </Heading>
       </Flex>
       <Box
         as="nav"
         display={{ base: "block", md: "none" }}
         onClick={handleToggle}
+        mt={5} mr={3}
       >
         <svg
           fill="black"
@@ -63,7 +70,7 @@ function PageHeader(props) {
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-        <DarkModeSwitch />
+        <DarkModeSwitch mr={5} mt={3}/>
       </Box>
     </Flex>
   );

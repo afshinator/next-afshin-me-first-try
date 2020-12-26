@@ -42,7 +42,7 @@ export default function Layout({ children, home }) {
         maxW={{ xl: "1200px" }}
         m="0 auto"
       >
-      <Progress size="xs" isIndeterminate />
+        <Progress size="xs" isIndeterminate />
         <PageHeader />
         <Box padding="4" bg="gray.100">
           There are many benefits to a joint design and development system. Not

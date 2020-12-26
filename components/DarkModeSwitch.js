@@ -3,7 +3,7 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { IconButton, useColorMode } from '@chakra-ui/react';
 
 
-const DarkModeSwitch = () => {
+const DarkModeSwitch = (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -15,6 +15,7 @@ const DarkModeSwitch = () => {
       size="lg"
       variant="outline"
       isRound
+      {...props}
     />
   );
 };
