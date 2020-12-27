@@ -39,6 +39,18 @@ export default function Layout({ children, inPage, randomClass }) {
           as="font"
           crossOrigin=""
         />
+        <link
+          rel="preload"
+          href="/fonts/BarlowCondensed-Bold.ttf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/BarlowCondensed-Italic.ttf"
+          as="font"
+          crossOrigin=""
+        />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
@@ -51,7 +63,7 @@ export default function Layout({ children, inPage, randomClass }) {
         <Progress size="xs" isIndeterminate />
         <PageHeader inPage={inPage} randomClass={randomClass} />
         <Progress size="xs" isIndeterminate />
-        <main style={{width: '100%'}}>{children}</main>
+        <main style={{ width: "100%" }}>{children}</main>
         {inPage !== "home" && (
           <div>
             <Link href="/">

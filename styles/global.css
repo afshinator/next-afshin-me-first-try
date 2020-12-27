@@ -34,6 +34,20 @@ img {
   font-weight: 400;
   font-display: swap;
 }
+@font-face {
+  font-family: "BarlowCondensedBold";
+  src: url("/fonts/BarlowCondensed-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "BarlowCondensedItalic";
+  src: url("/fonts/BarlowCondensed-Italic.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
 .barlow {
   font-family: "BarlowCondensed";
