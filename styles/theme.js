@@ -1,22 +1,22 @@
-import { extendTheme, theme as chakraTheme } from "@chakra-ui/react"
 
-
-const overrides = {
+const customTheme = {
   // styles,
   // borders,
   // components: {
   //   Button,
   // },
-}
-
-const customTheme = {
-  ...chakraTheme,
+  colors: {
+    my: {
+      100: "#d69e2e",
+      // ...
+      900: "#33658a",
+    },
+  },
   fonts: {
-    ...chakraTheme.fonts,
-    body: `BarlowCondensed,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
+    heading: "'BarlowCondensed',Helvetica,Arial,sans-serif"
   }
 }
 
-// const customTheme = extendTheme(overrides)
+
 
 export default customTheme

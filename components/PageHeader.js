@@ -1,21 +1,30 @@
 import { Flex, Text, Center, Box, Heading, Button } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import DarkModeSwitch from "./DarkModeSwitch";
+import Link from "next/link";
 
 const MenuItems = ({ children }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display="block" color="black">
-    {children}
-  </Text>
+  <motion.div
+    whileHover={{
+      scale: 1.2,
+      transition: { duration: 0.2 },
+    }}
+  >
+    <Link href={`/${children.toLowerCase()}`}>
+      <Text mt={{ base: 4, md: 0 }} mr={6} display="block" color="black">
+        <a>{children}</a>
+      </Text>
+    </Link>
+  </motion.div>
 );
-
-
 
 function PageHeader(props) {
   const [show, setShow] = React.useState(false);
-  const [randomClass, setRandomClass] = React.useState(
-    () => { return 'tileImage' + Math.floor(Math.random() * Math.floor(9))}
-  )
+  const [randomClass, setRandomClass] = React.useState(() => {
+    return "tileImage" + Math.floor(Math.random() * Math.floor(10));
+  });
   const handleToggle = () => setShow(!show);
-  console.log('randomClass ', randomClass)
+
   return (
     <Flex
       as="header"
@@ -30,10 +39,19 @@ function PageHeader(props) {
     >
       <Flex w="100%" height="4" className={randomClass}></Flex>
       <Flex align="center" mx={5} my={3} direction="column" alignItems="left">
-        <Heading as="h1" size="lg" letterSpacing={"-.1rem"} color="gray.900">
-          Afshin.me
-        </Heading>
-        <Heading as="h4" size="md">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { scale: 0.8, opacity: 0 },
+            visible: { scale: 1, opacity: 1, transition: { delay: 1 } },
+          }}
+        >
+          <Heading as="h1" size="3xl" letterSpacing={"-.1rem"} color="my.900">
+            Afshin.me
+          </Heading>
+        </motion.div>
+        <Heading as="h4" size="md" style={{ letterSpacing: "4px" }}>
           Software Engineer
         </Heading>
       </Flex>
@@ -41,7 +59,8 @@ function PageHeader(props) {
         as="nav"
         display={{ base: "block", md: "none" }}
         onClick={handleToggle}
-        mt={5} mr={3}
+        mt={5}
+        mr={3}
       >
         <svg
           fill="black"
@@ -70,7 +89,7 @@ function PageHeader(props) {
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-        <DarkModeSwitch mr={5} mt={3}/>
+        <DarkModeSwitch mr={5} mt={3} />
       </Box>
     </Flex>
   );

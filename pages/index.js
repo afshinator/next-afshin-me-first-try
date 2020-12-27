@@ -4,7 +4,7 @@ import Layout, { siteTitle } from "../components/layout";
 
 import { getSortedPostsData } from "../lib/posts";
 import DarkModeSwitch from "./../components/DarkModeSwitch";
-import { Text, Heading, Flex, Stack } from "@chakra-ui/react";
+import { Container, Box, Text, Heading, Flex, Stack } from "@chakra-ui/react";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -20,17 +20,9 @@ export default function Home({ allPostsData }) {
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
-        <link
-          rel="preload"
-          href="/fonts/BarlowCondensed-Regular.ttf"
-          as="font"
-          crossOrigin=""
-        />
       </Head>
       <section>
-        <DarkModeSwitch />
-        <p>Lets see what this looks like when Ichange the font - Afshin.me</p>
-        <p style={{ fontFamily: "BarlowCondensed" }}>
+        <Container maxW="6xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -38,7 +30,8 @@ export default function Home({ allPostsData }) {
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+          <DarkModeSwitch />
+        </Container>
       </section>
     </Layout>
   );

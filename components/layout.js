@@ -25,13 +25,19 @@ export default function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Blog and Portfolio site of Afshin Mokhtari, Software Engineer"
         />
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
             siteTitle
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+        />
+        <link
+          rel="preload"
+          href="/fonts/BarlowCondensed-Regular.ttf"
+          as="font"
+          crossOrigin=""
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -44,29 +50,7 @@ export default function Layout({ children, home }) {
       >
         <Progress size="xs" isIndeterminate />
         <PageHeader />
-        <Box padding="4" bg="gray.100">
-          There are many benefits to a joint design and development system. Not
-          only does it bring benefits to the design team.
-        </Box>
-        {home ? (
-          <>
-            <img src="/images/profile.jpg" alt={name} />
-            <h1>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <img src="/images/profile.jpg" alt={name} />
-              </a>
-            </Link>
-            <h2>
-              <Link href="/">
-                <a>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
+
 
         <main>{children}</main>
         {!home && (

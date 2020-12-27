@@ -34,6 +34,10 @@ img {
   font-display: swap;
 }
 
+.barlow {
+  font-family: "BarlowCondensed";
+}
+
 .tileImage0{
   background-color: #d69e2e;
   background-image: url("/img/patterns/bamboo.svg");
