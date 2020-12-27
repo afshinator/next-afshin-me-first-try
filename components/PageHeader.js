@@ -37,7 +37,7 @@ const WithAnimation = ({ inPage, children }) => {
         animate="visible"
         variants={{
           hidden: { scale: 0.8, opacity: 0 },
-          visible: { scale: 1, opacity: 1, transition: { delay: 1 } },
+          visible: { scale: 1, opacity: 1, transition: { delay: 0.2 } },
         }}
       >
         {children}
@@ -69,7 +69,7 @@ function PageHeader(props) {
             </Heading>
           </Link>
         </WithAnimation>
-        <Heading as="h4" size="md" style={{ letterSpacing: "4px" }}>
+        <Heading as="h4" size="lg">
           Software Engineer
         </Heading>
       </Flex>

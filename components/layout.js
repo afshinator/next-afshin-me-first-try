@@ -45,13 +45,13 @@ export default function Layout({ children, inPage, randomClass }) {
       <Flex
         direction="column"
         align="center"
-        maxW={{ xl: "1200px" }}
+        maxW={{ xl: "1152px" }}
         m="0 auto"
       >
         <Progress size="xs" isIndeterminate />
-        <PageHeader inPage={inPage} randomClass={randomClass}/>
-
-        <main>{children}</main>
+        <PageHeader inPage={inPage} randomClass={randomClass} />
+        <Progress size="xs" isIndeterminate />
+        <main style={{width: '100%'}}>{children}</main>
         {inPage !== "home" && (
           <div>
             <Link href="/">
