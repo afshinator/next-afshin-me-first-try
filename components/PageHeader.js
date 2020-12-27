@@ -3,20 +3,30 @@ import { motion } from "framer-motion";
 import DarkModeSwitch from "./DarkModeSwitch";
 import Link from "next/link";
 
-const MenuItems = ({ children }) => (
-  <motion.div
-    whileHover={{
-      scale: 1.2,
-      transition: { duration: 0.2 },
-    }}
-  >
-    <Link href={`/${children.toLowerCase()}`}>
-      <Text mt={{ base: 4, md: 0 }} mr={6} display="block" color="black">
-        <a>{children}</a>
+const MenuItems = (props) => {
+  const { children, inPage } = props;
+  if (inPage === props.children.toLowerCase()) {
+    return (
+      <Text mt={{ base: 4, md: 0 }} mr={6} display="block" color="red.700">
+        {props.children}
       </Text>
-    </Link>
-  </motion.div>
-);
+    );
+  }
+  return (
+    <motion.div
+      whileHover={{
+        scale: 1.2,
+        transition: { duration: 0.2 },
+      }}
+    >
+      <Link href={`/${props.children.toLowerCase()}`}>
+        <Text mt={{ base: 4, md: 0 }} mr={6} display="block" color="black">
+          <a>{props.children}</a>
+        </Text>
+      </Link>
+    </motion.div>
+  );
+};
 
 function PageHeader(props) {
   const [show, setShow] = React.useState(false);
@@ -80,9 +90,9 @@ function PageHeader(props) {
         alignItems="center"
         flexGrow={1}
       >
-        <MenuItems>About</MenuItems>
-        <MenuItems>This</MenuItems>
-        <MenuItems>Blog</MenuItems>
+        <MenuItems {...props}>About</MenuItems>
+        <MenuItems {...props}>This</MenuItems>
+        <MenuItems {...props}>Blog</MenuItems>
       </Box>
 
       <Box

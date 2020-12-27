@@ -17,8 +17,8 @@ import PageHeader from "./PageHeader";
 const name = "Shinators";
 export const siteTitle = "Next.js Website soon come";
 
-export default function Layout({ children, home }) {
-  console.log("layout.js: home?", home);
+export default function Layout({ children, inPage }) {
+  console.log("layout.js: home?", inPage);
   return (
     <>
       <Head>
@@ -49,11 +49,11 @@ export default function Layout({ children, home }) {
         m="0 auto"
       >
         <Progress size="xs" isIndeterminate />
-        <PageHeader />
+        <PageHeader inPage={inPage}/>
 
 
         <main>{children}</main>
-        {!home && (
+        {inPage!=="home" && (
           <div>
             <Link href="/">
               <a>← Back to home</a>
