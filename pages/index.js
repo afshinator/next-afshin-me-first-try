@@ -6,18 +6,23 @@ import { getSortedPostsData } from "../lib/posts";
 import DarkModeSwitch from "./../components/DarkModeSwitch";
 import { Container, Box, Text, Heading, Flex, Stack } from "@chakra-ui/react";
 
+
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData()
+  const randomClass =  "tileImage" + Math.floor(Math.random() * Math.floor(10));
+
   return {
     props: {
       allPostsData,
-    },
-  };
+      randomClass
+    }
+  }
 }
 
-export default function Home({ allPostsData }) {
+
+export default function Home({ allPostsData, randomClass }) {
   return (
-    <Layout inPage="home">
+    <Layout inPage="home" randomClass={randomClass}>
       <Head>
         <title>{siteTitle}</title>
       </Head>

@@ -47,9 +47,7 @@ const WithAnimation = ({ inPage, children }) => {
 
 function PageHeader(props) {
   const [show, setShow] = React.useState(false);
-  const [randomClass, setRandomClass] = React.useState(() => {
-    return "tileImage" + Math.floor(Math.random() * Math.floor(10));
-  });
+  const { randomClass } = props;
   const handleToggle = () => setShow(!show);
   return (
     <Flex
