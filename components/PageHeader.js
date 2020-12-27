@@ -7,7 +7,7 @@ const MenuItems = (props) => {
   const { children, inPage } = props;
   if (inPage === props.children.toLowerCase()) {
     return (
-      <Text mt={{ base: 4, md: 0 }} mr={6} display="block" color="red.700">
+      <Text mt={{ base: 4, md: 0 }} mr={6} display="block" fontSize="xl" color="red.700">
         {props.children}
       </Text>
     );
@@ -20,12 +20,29 @@ const MenuItems = (props) => {
       }}
     >
       <Link href={`/${props.children.toLowerCase()}`}>
-        <Text mt={{ base: 4, md: 0 }} mr={6} display="block" color="black">
+        <Text mt={{ base: 4, md: 0 }} mr={6} display="block" fontSize="xl" color="black">
           <a>{props.children}</a>
         </Text>
       </Link>
     </motion.div>
   );
+};
+
+const WithAnimation = ({ inPage, children }) => {
+  if (inPage !== "home") return children;
+  else
+    return (
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { scale: 0.8, opacity: 0 },
+          visible: { scale: 1, opacity: 1, transition: { delay: 1 } },
+        }}
+      >
+        {children}
+      </motion.div>
+    );
 };
 
 function PageHeader(props) {
@@ -34,7 +51,6 @@ function PageHeader(props) {
     return "tileImage" + Math.floor(Math.random() * Math.floor(10));
   });
   const handleToggle = () => setShow(!show);
-
   return (
     <Flex
       as="header"
@@ -45,22 +61,16 @@ function PageHeader(props) {
       m="0 auto"
       w="100%"
       borderRadius="sm"
-      {...props}
     >
       <Flex w="100%" height="4" className={randomClass}></Flex>
       <Flex align="center" mx={5} my={3} direction="column" alignItems="left">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { scale: 0.8, opacity: 0 },
-            visible: { scale: 1, opacity: 1, transition: { delay: 1 } },
-          }}
-        >
-          <Heading as="h1" size="3xl" letterSpacing={"-.1rem"} color="my.900">
-            Afshin.me
-          </Heading>
-        </motion.div>
+        <WithAnimation {...props}>
+          <Link href={"/"}>
+            <Heading as="h1" size="3xl" letterSpacing={"-.1rem"} color="my.900">
+              <a>Afshin.me</a>
+            </Heading>
+          </Link>
+        </WithAnimation>
         <Heading as="h4" size="md" style={{ letterSpacing: "4px" }}>
           Software Engineer
         </Heading>
@@ -88,7 +98,9 @@ function PageHeader(props) {
         display={{ sm: show ? "block" : "none", md: "flex" }}
         width={{ sm: "full", md: "auto" }}
         alignItems="center"
+        justifyContent="space-evenly"
         flexGrow={1}
+        ml={5}
       >
         <MenuItems {...props}>About</MenuItems>
         <MenuItems {...props}>This</MenuItems>
@@ -99,8 +111,9 @@ function PageHeader(props) {
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-        <DarkModeSwitch mr={5} mt={3} />
+        <DarkModeSwitch mr={5} mt={8} />
       </Box>
+      <Flex w="100%" mt={2} height="4" className={randomClass}></Flex>
     </Flex>
   );
 }

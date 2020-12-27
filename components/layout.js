@@ -49,11 +49,10 @@ export default function Layout({ children, inPage }) {
         m="0 auto"
       >
         <Progress size="xs" isIndeterminate />
-        <PageHeader inPage={inPage}/>
-
+        <PageHeader inPage={inPage} />
 
         <main>{children}</main>
-        {inPage!=="home" && (
+        {inPage !== "home" && (
           <div>
             <Link href="/">
               <a>← Back to home</a>
