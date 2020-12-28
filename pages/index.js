@@ -9,10 +9,12 @@ import {
   Heading,
   Flex,
   Stack,
+  StackDivider,
   AvatarGroup,
   Avatar,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { async } from "./about";
 
 /* When I generated the random number in the PageHeader, I got a
   ugly warning in console about classes not matching between screen
@@ -38,12 +40,18 @@ export default function Home({ allPostsData, randomClass }) {
       </Head>
       <section>
         <Flex maxW="2xl" m="0 auto" mt={10}>
-          <Heading as="h6" size="md" fontWeight="regular">
-            These days I focus on{" "}
+          <Heading as="h6" size="md" fontWeight="regular" px={4}>
+            Welcome to my blog / portfolio / playground.
+          </Heading>
+        </Flex>
+        <Flex maxW="2xl" m="0 auto" mt={10}>
+          <Heading as="h6" size="md" fontWeight="regular" px={4}>
+            My professional focus is on{" "}
             <strong style={{ fontWeight: 700 }}>Web Development</strong>,
             especially on the frontend with{" "}
             <strong style={{ fontWeight: 700 }}>Javascript and React-JS</strong>
-            .
+            ✨ I've also been doing mobile apps with React Native for a few
+            years now.
           </Heading>
 
           <motion.div
@@ -60,7 +68,15 @@ export default function Home({ allPostsData, randomClass }) {
               },
             }}
           >
-            <AvatarGroup size="lg" max={12}>
+            <AvatarGroup
+              width={[
+                "100%", // 0-30em
+                "50%", // 30em-48em
+                "25%", // 48em-62em
+                "15%", // 62em+
+              ]}
+              max={12}
+            >
               <Avatar name="Javascript" src="/img/tech/js.png" />
               <Avatar name="React-JS" src="/img/tech/react2.jpg" />
               <Avatar name="Next-JS" src="/img/tech/nextjs.png" />
@@ -75,8 +91,36 @@ export default function Home({ allPostsData, randomClass }) {
           borderWidth="1px"
           borderRadius="lg"
           overflow="hidden"
+          mt={10}  boxShadow="md" 
         >
-          <p>It is now essentially 2021.</p>
+          <Stack spacing={3} p={5}>
+            <Text fontSize="3xl">
+              🎅 Happy Holidays 🎄 - We're almost to 2021 🎉
+            </Text>
+            <Text fontSize="lg">
+              New for this year is another incarnation of my website.
+            </Text>
+
+            <Text fontSize="lg">
+              This time we have Next.js under the hood, with emotion for
+              css-in-js goodness, Chakra-UI for some prefad React-JS components
+              and more.
+            </Text>
+            <Text fontSize="lg">
+              I'm going to be putting up my old blog posts, as well as some
+              links to projects.
+            </Text>
+          </Stack>
+          <hr />
+          <Stack
+            spacing={3}
+            p={5}
+          >
+            <Text fontSize="lg">
+              I'll be migrating over my old blog posts and linking to some
+              projects as I build out this site over time.
+            </Text>
+          </Stack>
         </Box>
       </section>
     </Layout>

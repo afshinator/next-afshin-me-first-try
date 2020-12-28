@@ -4,10 +4,12 @@ import DarkModeSwitch from "./DarkModeSwitch";
 import Link from "next/link";
 
 const MenuItems = (props) => {
-  const { children, inPage } = props;
-  if (inPage === props.children.toLowerCase()) {
+  const { children, inPage, disabled } = props;
+  if (disabled || inPage === props.children.toLowerCase()) {
     return (
-      <Text mt={{ base: 4, md: 0 }} mr={6} display="block" fontSize="xl" color="red.700">
+      <Text mt={{ base: 4, md: 0 }} mr={6} display="block" fontSize="xl" 
+      color={ disabled ? "gray.700" : "red.700"}
+      >
         {props.children}
       </Text>
     );
@@ -20,7 +22,7 @@ const MenuItems = (props) => {
       }}
     >
       <Link href={`/${props.children.toLowerCase()}`}>
-        <Text mt={{ base: 4, md: 0 }} mr={6} display="block" fontSize="xl" color="black">
+        <Text mt={{ base: 4, md: 0 }} mr={6} display="block" fontSize="xl" color="my.900">
           <a>{props.children}</a>
         </Text>
       </Link>
@@ -101,8 +103,8 @@ function PageHeader(props) {
         ml={5}
       >
         <MenuItems {...props}>About</MenuItems>
-        <MenuItems {...props}>This</MenuItems>
-        <MenuItems {...props}>Blog</MenuItems>
+        <MenuItems {...props} disabled={true}>This</MenuItems>
+        <MenuItems {...props} disabled={true}>Blog</MenuItems>
       </Box>
 
       <Box
