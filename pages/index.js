@@ -5,6 +5,7 @@ import { getSortedPostsData } from "../lib/posts";
 import {
   Container,
   Box,
+  Image,
   Text,
   Heading,
   Flex,
@@ -91,7 +92,8 @@ export default function Home({ allPostsData, randomClass }) {
           borderWidth="1px"
           borderRadius="lg"
           overflow="hidden"
-          mt={10}  boxShadow="md" 
+          mt={10}
+          boxShadow="md"
         >
           <Stack spacing={3} p={5}>
             <Text fontSize="3xl">
@@ -112,10 +114,7 @@ export default function Home({ allPostsData, randomClass }) {
             </Text>
           </Stack>
           <hr />
-          <Stack
-            spacing={3}
-            p={5}
-          >
+          <Stack spacing={3} p={5}>
             <Text fontSize="lg">
               I'll be migrating over my old blog posts and linking to some
               projects as I build out this site over time.
@@ -123,6 +122,15 @@ export default function Home({ allPostsData, randomClass }) {
           </Stack>
         </Box>
       </section>
+      <Box my={20}>
+        <Image
+          m="0 auto"
+          src="/img/learn.gif"
+          borderRadius="lg"
+          alt="my motto"
+        />
+
+      </Box>
     </Layout>
   );
 }

@@ -11,6 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import App from "./_app";
+import { the } from "./../.next/static/chunks/main";
 
 export async function getStaticProps() {
   const randomClass = "tileImage" + Math.floor(Math.random() * Math.floor(10));
@@ -86,7 +87,7 @@ export default function AboutPage({ randomClass }) {
             <Heading as="h5" size="lg" fontStyle="italic" px={4}>
               Recent engineering efforts
             </Heading>
-            <Heading as="h6" size="md" fontWeight="regular" px={4}>
+            <Text as="h6" size="md" fontWeight="regular" px={4}>
               I've focused professionaly in the fields of medicine and social
               good with tech. I was the principal mobile engineer on a
               mindfulness mobile apps at{" "}
@@ -101,16 +102,16 @@ export default function AboutPage({ randomClass }) {
               Most recently I've been diving into Machine Learning projects
               around health data and pursuing some ideas about how to leverage
               that data.
-            </Heading>
+            </Text>
           </Flex>
-          <Flex maxW="2xl"  m="0 auto" mt={10}>
-            <Heading as="h6" size="md" fontWeight="regular" px={4}>
+          <Flex maxW="2xl" m="0 auto" mt={10}>
+            <Text as="h6" size="md" fontWeight="regular" px={4}>
               I like to learn. The computer industry is ever-changing and
               education is the key to staying to on top. Recently, life gave us
               the 😷Covid-19 lemon🍋, I've decided to make lemonade by taking
               the opportunity to learn the following this year:
               <Flex direction="row">
-                <Box ml={5} mt={5} fontStyle="italic">
+                <Box ml={35} mt={5} fontStyle="italic">
                   <ul>
                     <li>Gatsby-JS</li>
                     <li>Next-JS</li>
@@ -132,20 +133,33 @@ export default function AboutPage({ randomClass }) {
                   </Box>
                   <Box w={200}>
                     <Image
-                      src="/img/jamstack.png"
+                      src="/img/learn.gif"
                       borderRadius="lg"
-                      alt="JAMstack"
+                      alt="keep learning!"
                       mt={5}
                     />
                   </Box>
                 </Box>
               </Flex>
-            </Heading>
+            </Text>
             <Heading as="h5" size="lg" fontStyle="italic" px={4}>
               Knowledge is Power
             </Heading>
           </Flex>
         </Box>
+
+        <Box my="3rem">
+          <Image
+            m="0 auto"
+            src="/img/me3.png"
+            borderRadius="lg"
+            alt="Me at a company retreat"
+          />
+          <Flex justifyContent="center">
+            <Text>Company retreat in Sonoma County California, 2018</Text>
+          </Flex>
+        </Box>
+
         <Box
           maxW="4xl"
           m="0 auto"
@@ -155,9 +169,35 @@ export default function AboutPage({ randomClass }) {
           my={15}
         >
           <Heading as="h4" size="2xl" fontWeight="regular" px={4}>
-            Natural Medicine
+            Health & Healing with natural medicine
           </Heading>
+          <Flex maxW="2xl" m="0 auto" mt={10}>
+            <Heading as="h5" size="lg" fontStyle="italic" px={4}>
+              I have a Masters degree in Traditional Medicine
+            </Heading>
+            <Flex flexDir="column">
+              <Text size="md" fontWeight="regular" px={4}>
+                I was a primary care provider in California for about 8 years
+                practicing acupuncture and herbology ☯️. Before that I spent
+                some years studying bodywork as well as Traditional Chinese
+                Medicine and traditional medicines of other old cultures.
+              </Text>
+              <Text size="md" fontWeight="regular" px={4} mt={4}>
+                If you had sciatica I was <italic>the</italic> guy to go to!
+                (and still am) Soon I'll be adding all my old blog posts related
+                to natural medicine to this site. 🚧
+              </Text>
+              <Text size="md" fontWeight="regular" px={4} mt={4}>
+                I'm also a big fan of taiji (aka Tai Chi). Its an amazing art
+                that requires you to learn to relax without being limp, teaches
+                you the value of devotion, is one of the best ways to exercise
+                your lymphatic system and therefore your immune system, and much
+                more.
+              </Text>
+            </Flex>
+          </Flex>
         </Box>
+
         <Box
           maxW="4xl"
           m="0 auto"
@@ -170,11 +210,24 @@ export default function AboutPage({ randomClass }) {
             Music & Drums
           </Heading>
           <Flex maxW="2xl" m="0 auto" mt={10}>
+            <Flex flexDir="column">
+              <Text size="md" fontWeight="regular" px={4}>
+                I've been playing music as a percussionist since the early 90's.
+                I love hand drums especially and I play for all kinds of dance
+                classes; especially related to African dance. 💃🏽 Its ecstatic!
+              </Text>
+              <Text size="md" fontWeight="regular" px={4} mt={4}></Text>
+              <Box w={200}>
+                <Image
+                  src="/img/afshinwithdjembe.jpg"
+                  borderRadius="lg"
+                  alt="Afshin playing djembe at a club"
+                  ml={5}
+                />
+              </Box>
+            </Flex>
             <Heading as="h5" size="lg" fontStyle="italic" px={4}>
-              wham bam!
-            </Heading>
-            <Heading as="h6" size="md" fontWeight="regular" px={4}>
-              Coming Soon!
+              I'm a percussionist and a lover of rhythm
             </Heading>
           </Flex>
         </Box>
